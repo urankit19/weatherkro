@@ -1,98 +1,71 @@
-# 🌤️ Weather Casting App  
+# 🌤️ WeatherKro – Weather Casting App
 
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/weather-casting-app?color=00c7b7&style=for-the-badge)  
-![GitHub stars](https://img.shields.io/github/stars/your-username/weather-casting-app?color=ffdd00&style=for-the-badge)  
-![GitHub forks](https://img.shields.io/github/forks/your-username/weather-casting-app?color=ff758c&style=for-the-badge)  
-![License](https://img.shields.io/github/license/your-username/weather-casting-app?color=blueviolet&style=for-the-badge)  
+A sleek and responsive weather app built with **HTML**, **CSS**, and **JavaScript**, powered by the **WeatherAPI**. Get real-time weather updates with a beautiful glassmorphism UI.
 
-A **modern and elegant Weather App** built with **HTML, CSS, and JavaScript**.  
-Get real-time weather updates using the [WeatherAPI](https://www.weatherapi.com/).  
+## 🚀 Features
 
----
+- 🔍 Search weather by city name  
+- 🌡️ Displays temperature, condition, and weather icon  
+- 🎨 Elegant glassmorphism design with premium color palette  
+- 📱 Responsive layout for desktop and mobile  
+- 🌐 Real-time data from WeatherAPI  
 
-## 🚀 Features  
-✅ Search weather by **city name**  
-✅ Shows **temperature, condition, and weather icon**  
-✅ Beautiful **Glassmorphism UI** with premium colors ✨  
-✅ Real-time weather data from **WeatherAPI**  
-✅ Responsive design – works on **desktop & mobile**  
+## 🖼️ Preview
 
----
+> Add screenshots here  
+> Upload images to the repo and link them like:  
+> `![App Screenshot](screenshots/app-preview.png)`
 
-## 🖼️ Preview  
+## 🛠️ Tech Stack
 
-> Add screenshots here (upload to repo and link them)  
+- **HTML5**  
+- **CSS3**  
+- **JavaScript (ES6+)**  
+- **WeatherAPI**
 
-![App Screenshot](screenshot.png)  
+## ⚙️ Installation
 
----
-
-## 🛠️ Tech Stack  
-- **HTML5** 🌐  
-- **CSS3** 🎨  
-- **JavaScript (ES6+)** ⚡  
-- **WeatherAPI** 🌎  
-
----
-
-## ⚙️ Installation  
-
-Clone the repository:  
 ```bash
-git clone 
-cd weather-casting-app
-
+git clone git@github.com:urankit19/weatherkro.git
+cd weatherkro
 
 🔑 Setup API Key
-
 Get a free API key from WeatherAPI
 
 Open index.html
 
-Replace the default API key with your own:
+Replace the placeholder with your API key:
 
+javascript
 const apiKey = "YOUR_API_KEY";
-
 👨‍💻 Usage
-
 Enter your city name
 
 Click Search
 
-View temperature, condition & icon
+View temperature, condition, and weather icon
 
 🌟 Future Improvements
-
 🌈 Dynamic background colors based on weather condition
 
-📍 Auto-detect user’s location (Geolocation API)
+📍 Auto-detect user location using Geolocation API
 
 📊 5-day weather forecast
 
-💨 Extra details (Humidity, Wind speed, UV index)
+💨 Additional details: humidity, wind speed, UV index
 
 🤝 Contributing
+Contributions are welcome!
 
-Contributions are always welcome!
-
-Fork the repo 🍴
-
-Create your feature branch (git checkout -b feature-branch)
-
-Commit changes (git commit -m 'Add new feature')
-
-Push to branch (git push origin feature-branch)
-
-Open a Pull Request 🚀
+bash
+# Fork the repo
+git checkout -b feature-branch
+git commit -m "Add new feature"
+git push origin feature-branch
+Then, open a Pull Request 🚀
 
 📜 License
-
 This project is licensed under the MIT License.
 
-⭐ Don’t forget to star this repo if you like it!
-
-Made with ❤️ by Ankit
-
-
-
-
+Made with ❤️ by Ankit Raj
+Deployed on Netlify
