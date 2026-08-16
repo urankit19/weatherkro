@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFE45C"/>
+      <stop offset="100%" stop-color="#FF9F1C"/>
+    </linearGradient>
+
+    <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BFD7FF"/>
+      <stop offset="100%" stop-color="#4267A8"/>
+    </linearGradient>
+
+    <linearGradient id="drop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow
+        dx="0"
+        dy="8"
+        stdDeviation="8"
+        flood-opacity="0.2"
+      />
+    </filter>
+  </defs>
+
+  <!-- Sun -->
+  <circle
+    cx="365"
+    cy="145"
+    r="75"
+    fill="url(#sun)"
+    filter="url(#shadow)"
+  />
+
+  <!-- Sun Rays -->
+  <g
+    stroke="#FFB703"
+    stroke-width="14"
+    stroke-linecap="round"
+  >
+    <line x1="365" y1="40" x2="365" y2="15"/>
+    <line x1="365" y1="250" x2="365" y2="275"/>
+    <line x1="260" y1="145" x2="235" y2="145"/>
+    <line x1="470" y1="145" x2="495" y2="145"/>
+
+    <line x1="290" y1="70" x2="270" y2="50"/>
+    <line x1="440" y1="220" x2="460" y2="240"/>
+    <line x1="440" y1="70" x2="460" y2="50"/>
+  </g>
+
+  <!-- Cloud -->
+  <g filter="url(#shadow)">
+    <path
+      d="
+        M95 330
+        C55 330 30 300 30 265
+        C30 225 62 195 102 195
+        C113 150 151 120 198 120
+        C245 120 282 147 294 188
+        C306 179 321 175 337 175
+        C380 175 414 205 418 245
+        C450 250 475 275 475 308
+        C475 344 445 370 408 370
+        L100 370
+        C98 370 96 350 95 330
+        Z
+      "
+      fill="url(#cloud)"
+    />
+
+    <!-- Cloud highlight -->
+    <path
+      d="
+        M75 260
+        C75 225 105 205 135 205
+        C145 165 175 145 207 145
+        C245 145 270 170 280 205
+      "
+      fill="none"
+      stroke="#E8F1FF"
+      stroke-width="12"
+      stroke-linecap="round"
+      opacity="0.55"
+    />
+  </g>
+
+  <!-- Rain Drops -->
+  <g fill="url(#drop)" filter="url(#shadow)">
+
+    <path
+      d="
+        M120 390
+        C120 390 98 420 98 435
+        C98 450 108 460 120 460
+        C132 460 142 450 142 435
+        C142 420 120 390 120 390 Z
+      "
+    />
+
+    <path
+      d="
+        M185 390
+        C185 390 163 425 163 440
+        C163 455 173 465 185 465
+        C197 465 207 455 207 440
+        C207 425 185 390 185 390 Z
+      "
+    />
+
+    <path
+      d="
+        M250 385
+        C250 385 225 425 225 442
+        C225 458 236 470 250 470
+        C264 470 275 458 275 442
+        C275 425 250 385 250 385 Z
+      "
+    />
+
+    <path
+      d="
+        M320 390
+        C320 390 297 425 297 440
+        C297 455 307 465 320 465
+        C333 465 343 455 343 440
+        C343 425 320 390 320 390 Z
+      "
+    />
+
+    <path
+      d="
+        M385 390
+        C385 390 363 420 363 435
+        C363 450 373 460 385 460
+        C397 460 407 450 407 435
+        C407 420 385 390 385 390 Z
+      "
+    />
+
+  </g>
+
+  <!-- Drop Highlights -->
+  <g
+    fill="#E0F7FF"
+    opacity="0.8"
+  >
+    <ellipse cx="113" cy="430" rx="4" ry="8"/>
+    <ellipse cx="178" cy="435" rx="4" ry="8"/>
+    <ellipse cx="243" cy="437" rx="4" ry="9"/>
+    <ellipse cx="313" cy="435" rx="4" ry="8"/>
+    <ellipse cx="378" cy="430" rx="4" ry="8"/>
+  </g>
+
+</svg>
