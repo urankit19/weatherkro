@@ -1,58 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="shortcut icon" type="x-icon" href="rainy-day.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather-app</title>
+
+  <link rel="shortcut icon" type="image/svg+xml" href="rainyday.svg">
+
+  <title>weatherkro | Weather Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="weather-card">
-      <h1><p>🌤️ Weather app</p></h1>
-      <input type="text" id="cityInput" placeholder="Enter city">
-      <button onclick="getweather()" > Search</button> 
-      <h2  id="cityName"></h2>
-      <div id="icon" ></div>
-      <p class="temperature" id="temperature"></p>
-      <p id="condition"></p>
-      <p class="error" id="error"></p>
-      
-    </div> 
+
+  <main class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">☁️</div>
+
+        <div>
+          <h1>weatherkro</h1>
+          <p>Live weather information</p>
+        </div>
+      </div>
+
+      <div class="live-status">
+        <span></span>
+        Live
+      </div>
+    </header>
 
 
-<script>
-  async function getweather(){
-  const city = document.getElementById("cityInput").value;
-  const apiKey = "6a3e247b131e45bf9bc60249252008";
-  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
+    <!-- Search -->
+    <section class="search-section">
 
-  try {
-    document.getElementById("error").innerText = "";
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("City not found");
+      <div class="search-box">
 
-    const data = await response.json();
-    document.getElementById("cityName").innerText = `${data.location.name}, ${data.location.country}`;
-    document.getElementById("temperature").innerText = `${data.current.temp_c}°C`;
-    document.getElementById("condition").innerText = `${data.current.condition.text}`;
-    document.getElementById("icon").innerHTML = `<img src="${data.current.condition.icon}" alt="icon">`;
-  } 
-  
-  catch (error) {
-    document.getElementById("error").innerText = error.message;
-    document.getElementById("cityName").innerText = "";
-    document.getElementById("temperature").innerText = "";
-    document.getElementById("condition").innerText = "";
-    document.getElementById("icon").innerHTML = "";
-  }
-}
+        <span class="search-icon">⌕</span>
 
-</script>
-    
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Search city..."
+          autocomplete="off"
+        >
+
+        <button id="searchBtn" onclick="getWeather()">
+          Search
+        </button>
+
+      </div>
+
+      <p class="search-hint">
+        Try searching for Kolkata, Delhi, Mumbai, London...
+      </p>
+
+    </section>
 
 
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </div>
 
-  
+
+    <!-- Error -->
+    <div class="error-box" id="error"></div>
+
+
+    <!-- Weather Dashboard -->
+    <section class="weather-dashboard" id="weatherDashboard">
+
+      <!-- Main Weather Card -->
+      <div class="main-weather-card">
+
+        <div class="location">
+          <span>📍</span>
+          <div>
+            <h2 id="cityName">Search for a city</h2>
+            <p id="localTime">Current weather information</p>
+          </div>
+        </div>
+
+
+        <div class="weather-main">
+
+          <div class="weather-icon-container">
+            <img id="weatherIcon" src="" alt="Weather icon">
+          </div>
+
+          <div class="temperature-container">
+            <div class="temperature">
+              <span id="temperature">--</span>
+              <sup>°C</sup>
+            </div>
+
+            <p id="condition">Waiting for location</p>
+
+            <p class="feels">
+              Feels like <strong id="feelsLike">--</strong>°C
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="weather-footer">
+
+          <div>
+            <span>🌡️</span>
+            <p>Min / Max</p>
+            <strong id="minMax">--</strong>
+          </div>
+
+          <div>
+            <span>💧</span>
+            <p>Humidity</p>
+            <strong id="humidity">--</strong>
+          </div>
+
+          <div>
+            <span>💨</span>
+            <p>Wind</p>
+            <strong id="wind">--</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Weather Details -->
+      <div class="details-card">
+
+        <div class="card-heading">
+          <div>
+            <h3>Weather Details</h3>
+            <p>Current atmospheric conditions</p>
+          </div>
+
+          <span>☀️</span>
+        </div>
+
+
+        <div class="details-grid">
+
+          <div class="detail">
+            <div class="detail-icon">💧</div>
+            <div>
+              <p>Humidity</p>
+              <h4 id="humidityDetail">--</h4>
+            </div>
+          </div>
+
+
+          <div class="detail">
+            <div class="detail-icon">💨</div>
+            <div>
+              <p>Wind Speed</p>
+              <h4 id="windDetail">--</h4>
+            </div>
+          </div>
+
+
+          <div class="detail">
+            <div class="detail-icon">🧭</div>
+            <div>
+              <p>Pressure</p>
+              <h4 id="pressure">--</h4>
+            </div>
+          </div>
+
+
+          <div class="detail">
+            <div class="detail-icon">👁️</div>
+            <div>
+              <p>Visibility</p>
+              <h4 id="visibility">--</h4>
+            </div>
+          </div>
+
+
+          <div class="detail">
+            <div class="detail-icon">☁️</div>
+            <div>
+              <p>Cloud Cover</p>
+              <h4 id="cloud">--</h4>
+            </div>
+          </div>
+
+
+          <div class="detail">
+            <div class="detail-icon">🌬️</div>
+            <div>
+              <p>Wind Direction</p>
+              <h4 id="windDirection">--</h4>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- AQI Card -->
+      <div class="aqi-card">
+
+        <div class="card-heading">
+          <div>
+            <h3>Air Quality</h3>
+            <p>Air pollution information</p>
+          </div>
+
+          <span>🌿</span>
+        </div>
+
+
+        <div class="aqi-content">
+
+          <div class="aqi-circle">
+            <strong id="aqiValue">--</strong>
+            <span>AQI</span>
+          </div>
+
+          <div class="aqi-info">
+            <h4 id="aqiStatus">--</h4>
+            <p id="aqiDescription">
+              Search a city to view air quality.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+      <p>Weatherly • Powered by WeatherAPI</p>
+    </footer>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
